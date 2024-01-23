@@ -1,7 +1,10 @@
-<div class = container >
-<%= simple_form_for [@list, @bookmark] do |l| %>
-  <%= l.input :comment %>
-  <%= l.association :movie %>
-  <%= l.submit %>
-<% end %>
+<div class="container mt-4">
+<div class="h3">Bookmark a movie for your list</div>
+    <%= simple_form_for [@list, @bookmark], html: { class: 'card' } do |l| %>
+        <div class="card-body">
+            <%= l.association :movie, label: 'Select Movie', label_html: { class: 'font-weight-bold' }, class: 'form-control' %>
+            <%= l.input :comment, label: 'Comment', label_html: { class: 'font-weight-bold' }, as: :text, class: 'form-control' %>
+            <%= l.submit 'Submit', class: 'btn btn-primary mt-3' %>
+        </div>
+    <% end %>
 </div>
